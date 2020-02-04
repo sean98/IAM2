@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_marginStart="20dp"
+        tools:context=".ui.components.timeLineView.TimeLineRecord"
+        >
+
+    <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/mainTitle"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15sp"
+            android:paddingEnd="15sp"
+            android:textSize="20sp"
+            tools:text="20.05.2019 sunday"
+            tools:textColor="@android:color/black"
+            tools:background="@drawable/rounded_corner"
+            />
+
+    <LinearLayout
+            android:id="@+id/eventsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <com.iam_client.ui.components.timeLineView.EventView
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:title_text="ליאור"
+                app:event_title_text_color="@android:color/darker_gray"
+                app:event_description_text_color="@android:color/holo_blue_dark"
+                app:description_text="phone call"
+                app:icon="@drawable/phone"
+                app:top_line_visible="false"
+                app:icon_color="@android:color/black"
+                app:circle_background_color="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+        </com.iam_client.ui.components.timeLineView.EventView>
+
+        <com.iam_client.ui.components.timeLineView.EventView
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:title_text="Sean Goldfarb"
+                app:description_text="order num 1547896562"
+                app:icon="@drawable/email"
+                app:icon_color="@android:color/white"
+                app:top_line_visible="true"
+                app:event_title_text_color="@android:color/holo_green_light"
+                app:circle_background_color="@android:color/holo_purple"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+        </com.iam_client.ui.components.timeLineView.EventView>
+
+        <com.iam_client.ui.components.timeLineView.EventView
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:title_text="SRS LDT "
+                app:description_text="cancel invoice 15486213123"
+                app:icon="@drawable/cancel"
+                app:bottom_line_visible="false"
+                app:circle_background_color="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+        </com.iam_client.ui.components.timeLineView.EventView>
+    </LinearLayout>
+</LinearLayout>

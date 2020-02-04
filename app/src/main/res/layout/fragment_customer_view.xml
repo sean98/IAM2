@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="customerCardViewModel"
+                type="com.iam_client.viewModels.main.customers.CustomerCardViewModel"/>
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragmentLayout"
+            tools:context=".ui.main.customers.CustomerView">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/edit_fab"
+                    android:onClick="@{(v)->customerCardViewModel.onEditClicked()}"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:backgroundTint="@color/colorDeepBlue"
+                    android:tint="@android:color/white"
+                    android:src="@drawable/mode_edit"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/refreshLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+            <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:focusableInTouchMode="true"
+                        android:focusable="true"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:baselineAligned="false">
+
+                        <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/account_card_details_outline"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+                                    android:hint="@string/licTradNum">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/licTradNum_text"
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="text"
+                                        android:maxLines="1"
+                                        tools:text="203679816000" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/card_bulleted"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/cid">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/code_text"
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:inputType="text"
+                                        android:background="@null"
+                                        tools:text="203679816000"
+                                        android:maxLines="1"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/account_circle"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+                                android:hint="@string/name">
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/name_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <LinearLayout
+                                android:layout_alignParentStart="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/cash_usd"
+                                    android:tint="@color/colorDeepBlue"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/balance">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/balance_text"
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@null"
+                                        android:inputType="text"
+                                        android:maxLines="1"
+                                        android:textColor="@color/colorDeepBlue" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                                android:id="@+id/view_finance_history_button"
+                                android:onClick="@{(v)->customerCardViewModel.onBalanceHistoryClicked()}"
+
+                                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                                android:layout_marginEnd="15dp"
+                                android:layout_alignParentEnd="true"
+                                android:gravity="center_vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorWhite"
+                                app:iconTint="@color/colorWhite"
+                                app:iconSize="25dp"
+                                app:icon="@drawable/history"
+                                android:backgroundTint="@color/colorDeepBlue"
+                                android:text="@string/view_more"/>
+                    </RelativeLayout>
+
+                    <View style="@style/Divider"/>
+
+                    <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="90dp"
+                            android:layout_marginEnd="90dp"
+                            android:orientation="horizontal">
+                        <androidx.cardview.widget.CardView
+                                android:id="@+id/showDocumentButton"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:layout_alignParentStart="true"
+                                app:cardCornerRadius="3dp"
+                                android:backgroundTint="@color/colorDeepBlue">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:onClick="@{(v)->customerCardViewModel.onDocumentNav()}"
+                                    android:src="@drawable/file_document_box_multiple_outline"
+                                    android:backgroundTint="@color/colorDeepBlue"
+                                    android:tint="@android:color/white"/>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                                android:id="@+id/addEventButton"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:layout_alignParentEnd="true"
+                                android:backgroundTint="@color/colorDeepBlue"
+                                app:cardCornerRadius="3dp">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    android:onClick="@{(v)->customerCardViewModel.onCreateDocumentNav()}"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/calendar_plus"
+                                    android:backgroundTint="@color/colorDeepBlue"
+                                    android:tint="@android:color/white"/>
+                        </androidx.cardview.widget.CardView>
+                    </RelativeLayout>
+
+                    <View style="@style/Divider"/>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:baselineAligned="false">
+                        <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/phone"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/phone1">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:id="@+id/phone1_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="none"
+                                        tools:text="054-7380606"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/smartphone"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/cellular">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:id="@+id/cell_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:linksClickable="true"
+                                        tools:text="054-7380608"
+                                        android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:baselineAligned="false">
+                        <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/phone"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/phone2">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:id="@+id/phone2_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        tools:text="054-7380608"
+                                        android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/fax"/>
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+                                    android:hint="@string/fax">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewFieldNoEdit"
+                                        app:boxBackgroundColor="@android:color/transparent"
+
+                                        android:id="@+id/fax_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        tools:text="054-7380608"
+                                        android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/email"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+                                android:hint="@string/email">
+                            <com.google.android.material.textfield.TextInputEditText
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:id="@+id/email_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="none"
+                                    tools:text="sean98goldfarb@gmail.com"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <View style="@style/Divider"/>
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/map_marker"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/billing_address">
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/billing_address_text"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:inputType="none"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/map_marker"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/shipping_address">
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/shipping_address_text"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="none"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <View style="@style/Divider"/>
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/account_tie"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/salesman">
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/salesman_text"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:inputType="none"
+                                    android:background="@null"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <View style="@style/Divider"/>
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/ic_event_note_blue"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/comments">
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/comments_text"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </RelativeLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

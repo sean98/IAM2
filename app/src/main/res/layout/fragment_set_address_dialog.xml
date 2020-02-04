@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="viewModel"
+                type="com.iam_client.viewModels.main.customers.SetAddressSharedViewModel"/>
+    </data>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:background="@android:color/black"
+            tools:context=".ui.main.customers.SetAddressDialog">
+
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:paddingBottom="30dp"
+                android:paddingTop="30dp"
+                app:cardCornerRadius="30dp"
+                app:cardBackgroundColor="@color/colorWhite">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp">
+                <ScrollView
+                        android:id="@+id/scrollViewAddress"
+                        android:layout_above="@id/commitButton"
+                        android:layout_alignParentTop="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp">
+                        <LinearLayout
+                                android:id="@+id/addressNameField"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="5dp">
+
+                             <com.google.android.material.textfield.TextInputLayout              
+app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:id="@+id/addressNameTextField"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:helperText="@string/required"
+                                    android:hint="@string/hint_address_name">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewField"
+                                        tools:text="City Type"
+                                        android:enabled="@{viewModel.isAddressTypeEnabled}"
+                                        android:focusable="@{viewModel.isAddressTypeEnabled}"
+                                        android:text="@={viewModel.addressType}"
+                                        android:textAlignment="center"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center_horizontal|top"
+                                        android:layout_gravity="center_vertical"
+                                        android:inputType="text"
+                                        android:maxLines="1"
+                                        android:id="@+id/id_text"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:id="@+id/cityField"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                        >
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/location_city"
+                                    android:layout_marginEnd="10dp"/>
+
+
+                             <com.google.android.material.textfield.TextInputLayout              
+app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:id="@+id/cityTextField"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:helperText="@string/required"
+                                    android:hint="@string/hint_city">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:imeActionLabel="@string/hint_city"
+                                        tools:text="City Name"
+                                        android:text="@={viewModel.city}"
+                                        style="@style/TextViewField"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:inputType="text"
+                                        android:maxLines="1"
+                                        android:id="@+id/city_text"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:id="@+id/streetField"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/home_city"
+                                    android:layout_marginEnd="10dp"/>
+                             <com.google.android.material.textfield.TextInputLayout              
+app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:id="@+id/streetTextField"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:helperText="@string/required"
+                                    android:hint="@string/hint_street">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:imeActionLabel="@string/hint_city"
+                                        android:text="@={viewModel.street}"
+                                        style="@style/TextViewField"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:inputType="text"
+                                        android:maxLines="1"
+                                        android:id="@+id/street_text"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:id="@+id/streetNoField"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_margin="5dp">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/numeric"
+                                    android:layout_marginEnd="10dp"/>
+                             <com.google.android.material.textfield.TextInputLayout              
+app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:id="@+id/streetNoTextField"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:helperText="@string/required"
+                                    android:hint="@string/hint_street_num">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewField"
+                                        android:text="@={viewModel.streetNum}"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:inputType="text"
+                                        android:maxLines="1" android:id="@+id/building_number_text"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                                android:id="@+id/apartmentField"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp">
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/numeric"
+                                    android:layout_marginEnd="10dp"/>
+                             <com.google.android.material.textfield.TextInputLayout              
+app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:id="@+id/apartmentTextField"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/hint_apartment">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewField"
+                                        android:text="@={viewModel.apartment}"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:inputType="text"
+                                        android:maxLines="1" android:id="@+id/apartment_number_text"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:baselineAligned="false">
+
+                             <com.google.android.material.textfield.TextInputLayout              
+app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:layout_weight="1"
+                                    android:id="@+id/blockTextField"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/hint_block">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewField"
+                                        android:text="@={viewModel.block}"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:inputType="text"
+                                        android:maxLines="1" android:id="@+id/block_text"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                             <com.google.android.material.textfield.TextInputLayout              
+app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:layout_weight="1"
+                                    android:id="@+id/zipCodeTextField"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/hint_zip_code">
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewField"
+                                        android:text="@={viewModel.zipcode}"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:inputType="text"
+                                        android:maxLines="1" android:id="@+id/zipcode_text"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:id="@+id/fixLocationButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginBottom="35dp"
+                                android:backgroundTint="@color/colorWhite"
+                                android:tint="@color/colorDeepBlue"
+                                android:src="@drawable/gps_fixed"
+                                app:rippleColor="@color/colorDeepBlue"/>
+                    </LinearLayout>
+                </ScrollView>
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/commitButton"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="15dp"
+                        android:textColor="@color/colorDeepBlue"
+                        android:text="@string/commit"
+                        android:onClick="@{(v)->viewModel.onConfirmClicked()}"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="24sp"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </FrameLayout>
+
+</layout>

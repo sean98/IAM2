@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.components.timeLineView.EventView">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        <com.iam_client.ui.components.timeLineView.EventDotView
+                android:id="@+id/timeLine"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                app:circle_background_color="@color/colorAccent"
+                app:icon="@drawable/phone"
+                app:stroke_width = "2dp"
+                app:top_line_visible="true"
+                app:circle_top_padding="10dp"
+                app:circle_radius="25dp"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    tools:text="Lior Itzhak "/>
+
+            <TextView
+                    android:visibility="visible"
+                    android:layout_marginBottom="8dp"
+                    android:id="@+id/body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    tools:text="invoice 15359777\n20,589ILS\nopen"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

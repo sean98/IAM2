@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EventsHistoryView">
+        <attr name="background_color" format="color"/>
+        <attr name="textSize" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="EventDotView">
+        <attr name="icon" format="reference"/>
+        <attr name="circle_background_color" format="color"/>
+        <attr name="icon_color" format="color"/>
+        <attr name="top_line_color" format="color"/>
+        <attr name="bottom_line_color" format="color"/>
+        <attr name="circle_top_padding" format="dimension" />
+        <attr name="top_line_visible" format="boolean" />
+        <attr name="bottom_line_visible" format="boolean" />
+        <attr name="circle_radius" format="dimension" />
+        <attr name="stroke_width" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="EventView" parent="EventDotView">
+        <attr name="icon"/>
+        <attr name="circle_background_color" />
+        <attr name="icon_color" />
+        <attr name="top_line_color"/>
+        <attr name="bottom_line_color"/>
+        <attr name="circle_top_padding"  />
+        <attr name="top_line_visible" />
+        <attr name="bottom_line_visible"  />
+
+        <attr name="line_width"  />
+
+
+        <attr name="circle_radius"/>
+        <attr name="stroke_width" />
+
+        <attr name="title_text" format="string"/>
+        <attr name="event_title_text_color" format="color"/>
+        <attr name="title_text_size" format="dimension"/>
+
+        <attr name="description_text" format="string"/>
+        <attr name="description_text_size" format="dimension"/>
+        <attr name="event_description_text_color" format="color"/>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="TimeLineRecord">
+        <attr name="main_title_visible" format="boolean"/>
+        <attr name="main_title_text" format="string"/>
+        <attr name="main_title_text_size" format="dimension"/>
+        <attr name="main_title_text_color" format="color"/>
+        <attr name="main_title_background_color" format="color"/>
+
+        <attr name="events_title_text_size" format="dimension"/>
+        <attr name="events_title_text_color" format="color"/>
+        <attr name="events_descriptions_text_size" format="dimension"/>
+        <attr name="events_descriptions_text_color" format="color"/>
+
+        <attr name="line_width" format="dimension"/>
+        <attr name="line_color" format="color"/>
+
+        <attr name="icon_circles_color" format="color"/>
+        <attr name="icons_color" format="color"/>
+
+
+    </declare-styleable>
+</resources>

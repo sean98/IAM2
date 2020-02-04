@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@+id/entry"
+            android:label="entry">
+
+    <fragment
+            android:id="@+id/entry"
+            android:name="com.iam_client.ui.main.Entry"
+            android:label="IAM"
+            tools:layout="@layout/fragment_entry">
+        <action
+                android:id="@+id/action_entry_to_customer_list"
+                app:destination="@id/customer_list"/>
+        <action
+                android:id="@+id/action_entry_to_settingsFragment"
+                app:destination="@id/settingsFragment"/>
+        <action android:id="@+id/action_entry_to_catalogFragment" app:destination="@id/catalogFragment"/>
+        <action
+                android:id="@+id/action_entry_to_salesmenDocuments"
+                app:destination="@id/salesmenDocuments"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/customer_list"
+            android:name="com.iam_client.ui.main.customers.CustomerList"
+            android:label="@string/customers"
+            tools:layout="@layout/fragment_customer_list">
+        <action
+                android:id="@+id/action_customer_list_to_customer_info"
+                app:destination="@id/customer_info"/>
+        <action
+                android:id="@+id/action_customer_list_to_customerEditMode"
+                app:destination="@+id/customerEditMode"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/customer_info"
+            android:name="com.iam_client.ui.main.customers.CustomerView"
+            android:label="@string/customer_info"
+            tools:layout="@layout/fragment_customer_view">
+        <argument
+                android:name="customer"
+                app:argType="com.iam_client.repostories.data.Customer"
+        />
+        <action
+                android:id="@+id/action_customer_info_to_customerEditMode"
+                app:destination="@id/customerEditMode"/>
+        <action android:id="@+id/action_customer_info_to_customerBalanceHistory"
+                app:destination="@id/customerBalanceHistory"/>
+        <action android:id="@+id/action_customer_info_to_documentFragment"
+                app:destination="@id/documentFragment"/>
+        <action
+                android:id="@+id/action_customer_info_to_documentEditMode"
+                app:destination="@id/documentEditMode"
+                app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/customerEditMode"
+            android:name="com.iam_client.ui.main.customers.CustomerEditMode"
+            android:label="@string/edit_customer"
+            tools:layout="@layout/fragment_customer_edit_mode">
+        <action android:id="@+id/action_customerEditMode_to_setAddressDialog" app:destination="@id/setAddressDialog"/>
+        <argument android:name="customer" app:argType="com.iam_client.repostories.data.Customer"/>
+        <action
+                android:id="@+id/action_customerEditMode_to_customer_info"
+                app:destination="@id/customer_info"
+                app:popUpToInclusive="false"
+                app:popUpTo="@+id/customer_list"
+                app:launchSingleTop="false"/>
+    </fragment>
+
+    <dialog android:id="@+id/setAddressDialog" android:name="com.iam_client.ui.main.customers.SetAddressDialog"
+            android:label="fragment_set_address_dialog" tools:layout="@layout/fragment_set_address_dialog">
+        <argument android:name="address" app:argType="com.iam_client.repostories.data.Address" app:nullable="true"/>
+    </dialog>
+
+    <fragment android:id="@+id/customerBalanceHistory"
+              android:name="com.iam_client.ui.main.customers.CustomerBalanceHistory"
+              android:label="Balance History"
+              tools:layout="@layout/fragment_customer_balance_history">
+        <argument android:name="customer" app:argType="com.iam_client.repostories.data.Customer"/>
+        <action
+                android:id="@+id/action_customerBalanceHistory_to_documentView"
+                app:destination="@id/documentView"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/documentFragment"
+            android:name="com.iam_client.ui.main.documents.DocumentTabbedFragment"
+            android:label="Documents"
+            tools:layout="@layout/document_tabbed_fragment">
+        <argument
+                android:name="customer"
+                app:argType="com.iam_client.repostories.data.Customer"
+                />
+        <action
+                android:id="@+id/action_documentFragment_to_documentView"
+                app:destination="@id/documentView"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/documentView"
+            android:name="com.iam_client.ui.main.documents.DocumentView"
+            android:label="fragment_document_view"
+            tools:layout="@layout/fragment_document_view">
+        <argument
+                android:name="docSn"
+                app:argType="integer"/>
+        <argument
+                android:name="docType"
+                app:argType="com.iam_client.repostories.data.docs.Document$Type"/>
+        <action
+                android:id="@+id/action_documentView_to_documentEditMode"
+                app:destination="@id/documentEditMode"
+                app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+            android:id="@+id/settingsFragment"
+            android:name="com.iam_client.ui.main.SettingsFragment"
+            android:label="SettingsFragment"/>
+
+    <fragment android:id="@+id/catalogFragment"
+              android:name="com.iam_client.ui.main.CatalogList"
+              android:label="Catalog"
+              tools:layout="@layout/catalog_fragmnet">
+
+        <action android:id="@+id/action_catalogFragment_self"
+                app:destination="@id/catalogFragment"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/documentEditMode"
+            android:name="com.iam_client.ui.main.documents.DocumentEditMode"
+            android:label="fragment_document_edit_mode"
+            tools:layout="@layout/fragment_document_edit_mode">
+        <argument
+                android:name="customer"
+                app:argType="com.iam_client.repostories.data.Customer"
+                app:nullable="true"
+                android:defaultValue="@null"/>
+        <argument
+                android:name="editDocSN"
+                app:argType="integer"
+                android:defaultValue="-1" />
+        <action
+                android:id="@+id/action_documentEditMode_to_documentView"
+                app:destination="@id/documentView"
+                app:popUpTo="@id/customer_info" />
+    </fragment>
+    <fragment
+            android:id="@+id/salesmenDocuments"
+            android:name="com.iam_client.ui.main.salesmen.SalesmenDocuments"
+            android:label="fragment_salesmen_documents"
+            tools:layout="@layout/fragment_salesmen_documents">
+        <action
+                android:id="@+id/action_salesmenDocuments_to_documentView"
+                app:destination="@id/documentView"/>
+    </fragment>
+
+
+</navigation>

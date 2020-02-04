@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="viewModel"
+                type="com.iam_client.viewModels.main.customers.BalanceHistoryViewModel"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorDeepBlue"
+            tools:context=".ui.main.customers.CustomerBalanceHistory">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/bottom_card_view"
+                android:id="@+id/refreshLayout">
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/records_list"
+                    android:orientation="vertical"
+                    android:scrollbars="vertical"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/finance_record"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <androidx.cardview.widget.CardView
+                android:layout_alignParentStart="true"
+                android:id="@+id/bottom_card_view"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:paddingBottom="10dp">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="5dp">
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/cash_usd"
+                            android:tint="@color/colorDeepBlue"
+                            android:layout_marginEnd="5dp"/>
+
+                     <com.google.android.material.textfield.TextInputLayout              
+app:boxBackgroundColor="@android:color/transparent"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/balance">
+                        <com.google.android.material.textfield.TextInputEditText
+                                style="@style/TextViewFieldNoEdit"
+                                android:id="@+id/balance_text"
+                                android:text="@{viewModel.balance}"
+                                tools:text="1050.00 ILS"
+                                android:background="@null"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <CheckBox
+                        android:id="@+id/show_open_only_checkbox"
+                        android:checked="@={viewModel.showOpenRecordOnly}"
+                        tools:checked="true"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="20dp"
+                        android:buttonTint="@color/colorDeepBlue"
+                        android:text="@string/show_open_only"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+</layout>

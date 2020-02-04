@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:title="Settings">
+
+        <SwitchPreference
+                android:key="USE_DEVELOPMENT_MODE"
+                android:title="Use development mode"
+                android:summary="will take effect after a restart"
+                android:defaultValue="true"/>
+        <SwitchPreference
+                android:key="CLEAR_DATA_ON_START"
+                android:title="Clear cache when application start"
+                android:defaultValue="false"/>
+        <PreferenceCategory
+                android:key="DEPLOYMENT_SETTINGS"
+                android:title="Deployment Options">
+            <EditTextPreference
+                    android:key="DEPLOY_SERVER_URL"
+                    android:title="Deploy URL"
+                    android:summary="The URL of the API Server"
+                    android:defaultValue="http://app.clear-mesh.com:5000/api/"/>
+        </PreferenceCategory>
+
+        <PreferenceCategory
+                android:key="DEVELOPMENT_SETTINGS"
+                android:title="Development Options"
+                android:dependency="USE_DEVELOPMENT_MODE">
+            <EditTextPreference
+                    android:key="DEVELOPMENT_SERVER_URL"
+                    android:title="Local URL"
+                    android:summary="The URL of the API Server"
+                    android:defaultValue="http://10.0.0.71:5000/api/"
+                    android:dependency="USE_DEVELOPMENT_MODE"/>
+
+            <SwitchPreference
+                    android:key="USE_LOCAL_URL"
+                    android:title="Use local URL for API Server"
+                    android:summary="will take effect after a restart"
+                    android:defaultValue="false"/>
+
+        </PreferenceCategory>
+
+    </PreferenceCategory>
+</PreferenceScreen>

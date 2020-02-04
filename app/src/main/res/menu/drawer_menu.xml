@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item android:id="@id/entry"
+	      android:icon="@drawable/ic_home_black_24dp"
+	      android:title="Home"/>
+
+	<item android:id="@id/customer_list"
+	      android:icon="@drawable/ic_people_black_24dp"
+	      android:title="@string/customers" />
+
+	<item android:id="@id/settingsFragment"
+	      android:title="Settings" />
+
+
+
+	<item android:id="@id/catalogFragment"
+	      android:title = "Catalog"/>
+
+	<item android:id="@id/salesmenDocuments"
+		  android:title = "Salesmen Open Documents"/>
+</menu>

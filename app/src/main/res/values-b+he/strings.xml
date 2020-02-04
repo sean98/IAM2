@@ -1,0 +1,97 @@
+<resources>
+    <string name="commit">אישור</string>
+    <string name="add">הוסף</string>
+    <string name="update">עדכן</string>
+    <string name="required">*נדרש</string>
+
+    <string name="title_activity_login">התחבר</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="licTradNum">ת.ז/ח.פ</string>
+    <string name="view_more">הצג יותר</string>
+    <string name="cid">מספר סידורי</string>
+    <string name="name">שם</string>
+    <string name="balance">יתרת חוב</string>
+    <string name="phone1">טלפון 1</string>
+    <string name="phone2">טלפון 2</string>
+    <string name="cellular">נייד</string>
+    <string name="fax">פקס</string>
+    <string name="email">אימייל</string>
+    <string name="billing_address">כתובת לחיוב</string>
+    <string name="shipping_address">כתובת למשלוח</string>
+    <string name="comments">הערות</string>
+    <string name="salesman">איש מכירות</string>
+    <string name="private_str">פרטי</string>
+    <string name="company">חברה</string>
+    <string name="employe">עובד</string>
+
+    <string name="items">פריטים</string>
+    <string name="doc_num">מספר מסמך</string>
+    <string name="doc_date">תאריך אסמכתא</string>
+    <string name="doc_due_date">תאריך ערך</string>
+    <string name="doc_valid_until_date">תקף עד</string>
+    <string name="supply_date">תאריך אספקה</string>
+    <string name="total_before_discount">סה"כ לפני הנחה</string>
+    <string name="discount">הנחה</string>
+    <string name="vat">מע"מ</string>
+    <string name="total">סה"כ</string>
+    <string name="code">מק\"ט</string>
+    <string name="price">מחיר</string>
+    <string name="paid_sum">שולם</string>
+    <string name="need_to_pay">יתרה לתשלום</string>
+
+    <string name="description">תיאור</string>
+    <string name="total_price">סה"כ מחיר</string>
+    <string name="height">גובה</string>
+    <string name="width">רוחב</string>
+    <string name="length">אורך</string>
+    <string name="units">יחידות</string>
+    <string name="quantity">כמות</string>
+    <string name="price_per_quantity">מחיר לכמות</string>
+    <string name="details">פרטים</string>
+
+
+    <string name="hint_address_name">שם כתובת</string>
+    <string name="hint_city">עיר</string>
+    <string name="hint_street">רחוב</string>
+    <string name="hint_street_num">מספר ברחוב</string>
+    <string name="hint_apartment">דירה</string>
+    <string name="hint_block">בלוק</string>
+    <string name="hint_zip_code">מיקוד</string>
+	<string name="prompt_username">שם משתמש</string>
+    <string name="prompt_password">סיסמא</string>
+    <string name="action_sign_in">כניסה</string>
+
+    <string name="customers">לקוחות</string>
+    <string name="customer_info">מידע לקוח</string>
+    <string name="edit_customer">עריכת לקוח</string>
+
+    <string name="show_open_only">הצג פתוחים בלבד</string>
+
+    <string name="error_process_already_running_wait">"התהליך כבר פועל, אנה המתן…"</string>
+    <string name="error_some_field_not_valid">תקלה: חלק מהשדות אינם תקינים</string>
+
+    <string name="error_address_name_empty">חובה למלא את שם הכתובת</string>
+    <string name="error_empty_field">שדה זה אינו יכול להיות ריק</string>
+
+    <string name="invoices">חשבוניות</string>
+    <string name="orders">הזמנות</string>
+    <string name="delivery_notes">תעודות משלוח</string>
+    <string name="quotations">הצעות מחיר</string>
+    <string name="credit_notes">חשבוניות זיכוי</string>
+    <string name="receipts">קבלות</string>
+
+    <string name="invoice">חשבונית</string>
+    <string name="order">הזמנה</string>
+    <string name="delivery_note">תעודת משלוח</string>
+    <string name="quotation">הצעת מחיר</string>
+    <string name="credit_note">חשבונית זיכויי</string>
+    <string name="receipt">קבלה</string>
+    <string name="journal">תנועת יומן</string>
+    <string name="other">אחר</string>
+    <string name="add_item">הוסף מוצר</string>
+    <string name="discount_percent">אחוזי הנחה</string>
+    <string name="cancel_document">בטל מסמך</string>
+</resources>

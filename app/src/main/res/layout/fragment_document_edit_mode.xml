@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        tools:context="com.iam_client.ui.main.documents.DocumentEditMode">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.iam_client.viewModels.main.documents.EditDocumentViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+
+        <ScrollView
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <LinearLayout
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/docTypeTextView"
+                            android:layout_alignParentStart="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="Document Type"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:layout_marginTop="0dp"
+                            android:layout_alignParentTop="true"/>
+
+                    <LinearLayout
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/isCanceledIcon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/cancel"
+                                android:tint="@android:color/black"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginEnd="2dp"/>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/isCloseIcon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/lock"
+                                android:tint="@android:color/black"
+                                android:layout_marginStart="2dp"
+                                android:layout_marginEnd="2dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
+
+                    <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/card_bulleted"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/cid">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/cardCodeTextField"
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="text"
+                                        android:background="@null"
+                                        tools:text="203679816000"
+                                        android:maxLines="1"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_gravity="top"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="10dp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/account_circle"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/name">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:id="@+id/cardNameTextField"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textAlignment="viewStart"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginEnd="5dp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/card_bulleted"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/doc_num">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/snField"
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="text"
+                                        android:background="@null"
+                                        tools:text="12029553"
+                                        android:maxLines="1"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginEnd="5dp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+
+                                    android:src="@drawable/card_bulleted"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/doc_date">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/docDateField"
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="text"
+                                        android:background="@null"
+                                        tools:text="22-12-2019"
+                                        android:maxLines="1"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginEnd="5dp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                    style="@style/IconsStyle"
+                                    android:src="@drawable/card_bulleted"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/docDueDateHintText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:boxBackgroundColor="@android:color/transparent"
+
+                                    android:hint="@string/doc_due_date">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/docDueDateField"
+                                        style="@style/TextViewFieldNoEdit"
+                                        android:enabled="true"
+                                        android:clickable="true"
+                                        android:focusable="false"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:inputType="text"
+                                        android:background="@null"
+                                        tools:text="22-12-2019"
+                                        android:maxLines="1"
+                                       />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View style="@style/Divider"/>
+
+                <TextView
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/items"
+                        android:textSize="18sp"/>
+
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:nestedScrollingEnabled="false"
+                            android:id="@+id/item_records_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:listitem="@layout/doc_item_record"
+                            tools:itemCount="5" />
+                </RelativeLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_item_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_item"/>
+
+                <View style="@style/Divider"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/cash_usd"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/total_before_discount">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/totalBeforeDCTextField"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:background="@null"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="text"
+                                    android:maxLines="1"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/cash_usd"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/discount">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/dcTextField"
+                                    android:inputType="numberDecimal|number"
+                                    style="@style/TextViewField"
+                                    android:background="@null"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLines="1"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/cash_usd"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/vat">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/vatTestField"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:background="@null"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="text"
+                                    android:maxLines="1"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/cash_usd"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/total">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/totalTestField"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:background="@null"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="text"
+                                    android:maxLines="1"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/cash_usd"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/paid_sum">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/totalPaidSum"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:inputType="text"
+                                    android:maxLines="1"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/cash_usd"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/need_to_pay">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/totalNeedToPay"
+                                    style="@style/TextViewFieldNoEdit"
+                                    android:background="@null"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="text"
+                                    android:maxLines="1"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View style="@style/Divider"/>
+
+                <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="vertical">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/account_tie"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/salesman">
+
+                            <Spinner
+                                    android:id="@+id/salesman_spinner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textSize="18sp"
+                                    android:spinnerMode="dialog"
+                                    android:adapter="@{viewModel.salesmanAdapter}"
+                                    android:entries="@{viewModel.salesmenList}"
+                                    android:value="@={viewModel.salesman}"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                style="@style/IconsStyle"
+                                android:src="@drawable/event_note"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundColor="@android:color/transparent"
+
+                                android:hint="@string/comments">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/commentsTextField"
+                                    style="@style/TextViewField"
+                                    android:text="@={viewModel.comments}"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAlignment="viewStart"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/save_fab"
+                android:onClick="@{(v)->viewModel.onSaveClicked()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/colorDeepBlue"
+                app:tint="@color/colorWhite"
+                app:srcCompat ="@drawable/ic_save_white_24dp"/>
+
+        <ProgressBar
+                android:id="@+id/progressBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                android:indeterminateTint="@android:color/holo_red_dark"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
